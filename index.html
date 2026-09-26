@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gladyson Sound&Vision - instalação, manutenção e regulagem de sistemas de som na Região Metropolitana de Belo Horizonte.">
+  <meta name="theme-color" content="#f5f5f6">
+  <title>Gladyson Sound&Vision | Instalação e Serviços de Áudio</title>
+
+  <style>
+    :root {
+      --bg: #08090b;
+      --bg-soft: #101216;
+      --card: #15171c;
+      --text: #f5f5f5;
+      --muted: #a9adb6;
+      --line: rgba(255,255,255,.09);
+      --accent: #ffb000;
+      --accent-2: #ff7a00;
+      --max: 1180px;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(255,176,0,.10), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(100% - 40px, var(--max));
+      margin-inline: auto;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8,9,11,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #111;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      font-weight: 900;
+    }
+
+    .brand span { display: block; }
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-top: -3px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: #d7d8dc;
+    }
+
+    .menu a:hover { color: var(--accent); }
+
+    .menu .nav-cta {
+      color: #111;
+      background: var(--accent);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .18;
+      background:
+        linear-gradient(90deg, transparent 0 8%, rgba(255,176,0,.5) 8.2% 8.5%, transparent 8.7% 16%),
+        repeating-linear-gradient(90deg, transparent 0 45px, rgba(255,255,255,.03) 46px 47px);
+      mask-image: linear-gradient(to right, #000, transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 760px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .98;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+    }
+
+    h1 strong {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 19px;
+      margin-bottom: 32px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 12px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #ffc33a;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.03);
+      color: white;
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,.07); }
+
+    section { padding: 90px 0; }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 42px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.05;
+      letter-spacing: -1.8px;
+      margin-bottom: 14px;
+    }
+
+    .section-head p,
+    .about p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .services {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,176,0,.35);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(255,176,0,.12);
+      color: var(--accent);
+      font-size: 23px;
+      margin-bottom: 22px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 9px;
+    }
+
+    .card p { color: var(--muted); font-size: 15px; }
+
+    .problems {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problems::after {
+      content: "〰";
+      position: absolute;
+      right: 4%;
+      top: 25%;
+      font-size: 240px;
+      line-height: 1;
+      color: rgba(255,176,0,.045);
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    .problem-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 30px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .problem {
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.025);
+      border-radius: 12px;
+      color: #ddd;
+    }
+
+    .problem b { color: var(--accent); margin-right: 7px; }
+
+    .process {
+      background: linear-gradient(180deg, var(--bg-soft), var(--bg));
+      border-top: 1px solid var(--line);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      position: relative;
+      padding: 24px 18px;
+      border-top: 2px solid var(--accent);
+      background: rgba(255,255,255,.025);
+      border-radius: 0 0 14px 14px;
+    }
+
+    .step-number {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .step h3 { margin: 8px 0; font-size: 17px; }
+    .step p { color: var(--muted); font-size: 14px; }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-box {
+      min-height: 350px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 38px;
+      background:
+        linear-gradient(135deg, rgba(255,176,0,.12), transparent 50%),
+        #111318;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .about-box .big {
+      font-size: 70px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .about-box p {
+      margin-top: 12px;
+      color: #ddd;
+    }
+
+    .about ul {
+      list-style: none;
+      margin-top: 24px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .about li {
+      color: #ddd;
+      display: flex;
+      gap: 10px;
+    }
+
+    .about li::before {
+      content: "<i class="fa-solid fa-check" aria-hidden="true"></i>";
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .contact {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 40px;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .contact-item {
+      padding: 18px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .contact-item small {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: #ddd;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #0d0f12;
+      color: white;
+      border-radius: 10px;
+      padding: 13px 14px;
+      font: inherit;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(255,176,0,.7);
+    }
+
+    textarea { min-height: 130px; resize: vertical; }
+
+    .footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 999;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      font-size: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      transition: .2s ease;
+    }
+
+    .whatsapp-float:hover { transform: scale(1.06); }
+
+    @media (max-width: 900px) {
+      .menu { display: none; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .about-wrap, .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      section { padding: 65px 0; }
+      .hero { min-height: 610px; }
+      .hero-content { padding: 65px 0; }
+      h1 { letter-spacing: -2px; }
+      .hero p { font-size: 17px; }
+      .grid, .problem-list, .steps, .form-row { grid-template-columns: 1fr; }
+      .about-box { min-height: 280px; padding: 28px; }
+      .about-box .big { font-size: 55px; }
+      .brand { font-size: 14px; }
+      .brand-mark { width: 38px; height: 38px; }
+    }
+  
+    .settings-button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--text);cursor:pointer;font-size:19px;transition:.25s}
+    .settings-button:hover{transform:rotate(35deg) scale(1.06);background:rgba(255,176,0,.14)}
+    .settings-panel{position:fixed;top:88px;right:20px;width:min(340px,calc(100% - 32px));padding:22px;background:rgba(20,22,27,.98);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.45);z-index:1100;transform:translateY(-10px) scale(.97);opacity:0;pointer-events:none;transition:.22s}
+    .settings-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:auto}
+    .settings-panel h3{margin-bottom:15px;font-size:18px}.settings-group{display:grid;gap:9px;margin-top:16px}.settings-group>label{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.7px}.settings-options{display:flex;flex-wrap:wrap;gap:7px}.settings-options button{border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);border-radius:9px;padding:8px 11px;cursor:pointer}.settings-options button:hover,.settings-options button.active{border-color:var(--accent);color:var(--accent)}
+    .cookie-banner{position:fixed;left:18px;right:18px;bottom:18px;z-index:1200;padding:18px 20px;background:rgba(20,22,27,.98);border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 50px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:space-between;gap:18px;animation:cookieIn .45s ease both}.cookie-banner p{color:var(--muted);font-size:13px;max-width:850px}.cookie-banner strong{color:#fff}.cookie-ok{flex:0 0 auto;border:0;background:var(--accent);color:#111;padding:10px 18px;border-radius:9px;font-weight:900;cursor:pointer}
+    .thank-you{display:none;position:fixed;inset:0;z-index:1300;place-items:center;background:rgba(0,0,0,.72);backdrop-filter:blur(7px);padding:20px}.thank-you.show{display:grid}.thank-you-box{width:min(480px,100%);padding:34px;background:var(--card);border:1px solid rgba(255,176,0,.35);border-radius:22px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.55);animation:modalIn .28s ease both}.thank-icon{width:62px;height:62px;display:grid;place-items:center;margin:0 auto 18px;border-radius:50%;background:rgba(255,176,0,.13);color:var(--accent);font-size:28px}.thank-you-box h3{font-size:27px;margin-bottom:10px}.thank-you-box p{color:var(--muted);margin-bottom:22px}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    body.light{--bg:#f5f5f6;--bg-soft:#e9eaed;--card:#fff;--text:#15161a;--muted:#5e626b;--line:rgba(0,0,0,.10);background:var(--bg)}
+    body.light .header{background:rgba(245,245,246,.90)}body.light .settings-panel,body.light .cookie-banner{background:rgba(255,255,255,.98)}body.light .thank-you-box{background:#fff}body.light .thank-you-box h3,body.light .cookie-banner strong{color:var(--text)}
+    @keyframes cookieIn{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes modalIn{from{transform:translateY(12px) scale(.97);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+    @media(max-width:620px){.cookie-banner{align-items:stretch;flex-direction:column}.cookie-ok{width:100%}.settings-panel{top:76px;right:14px}}
+
+  
+    /* Ajustes completos do tema claro */
+    .slogan {
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      margin: -8px 0 20px;
+    }
+
+    .contact-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    body.light {
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    body.light .menu {
+      color: #272a30;
+    }
+
+    body.light .menu a:hover {
+      color: var(--accent-2);
+    }
+
+    body.light .menu .nav-cta {
+      color: #111;
+      background: var(--accent);
+    }
+
+    body.light .hero p,
+    body.light .section-head p,
+    body.light .about p,
+    body.light .card p,
+    body.light .problem,
+    body.light .step p {
+      color: #50545c;
+    }
+
+    body.light .card,
+    body.light .problem,
+    body.light .step,
+    body.light .contact-item,
+    body.light form {
+      background: #ffffff;
+      color: #202228;
+      border-color: rgba(0,0,0,.12);
+    }
+
+    body.light .card h3,
+    body.light .step h3,
+    body.light .contact-item strong,
+    body.light label {
+      color: #202228;
+    }
+
+    body.light .services,
+    body.light .process,
+    body.light .contact {
+      background: #eceef1;
+      border-color: rgba(0,0,0,.10);
+    }
+
+    body.light .about-box {
+      background: linear-gradient(135deg, rgba(255,176,0,.16), transparent 55%), #ffffff;
+      border-color: rgba(0,0,0,.12);
+    }
+
+    body.light .about-box p {
+      color: #42464e;
+    }
+
+    body.light input,
+    body.light select,
+    body.light textarea {
+      background: #ffffff;
+      color: #1b1d22;
+      border-color: rgba(0,0,0,.16);
+      color-scheme: light;
+    }
+
+    body.light input::placeholder,
+    body.light textarea::placeholder {
+      color: #777c85;
+      opacity: 1;
+    }
+
+    body.light input:focus,
+    body.light select:focus,
+    body.light textarea:focus {
+      border-color: rgba(255,145,0,.85);
+      box-shadow: 0 0 0 3px rgba(255,176,0,.12);
+    }
+
+    body.light .settings-button {
+      color: #202228;
+      background: rgba(0,0,0,.04);
+      border-color: rgba(0,0,0,.14);
+    }
+
+    body.light .settings-panel {
+      background: #ffffff;
+      color: #202228;
+      border-color: rgba(0,0,0,.12);
+    }
+
+    body.light .settings-panel h3 {
+      color: #202228;
+    }
+
+    body.light .settings-options button {
+      color: #202228;
+      background: #f2f3f5;
+      border-color: rgba(0,0,0,.13);
+    }
+
+    body.light .settings-options button:hover,
+    body.light .settings-options button.active {
+      color: #b76500;
+      border-color: var(--accent);
+      background: #fff8e7;
+    }
+
+    body.light .cookie-banner {
+      background: #ffffff;
+      color: #202228;
+      border-color: rgba(0,0,0,.13);
+    }
+
+    body.light .cookie-banner p {
+      color: #555a63;
+    }
+
+    body.light .cookie-banner strong {
+      color: #202228;
+    }
+
+    body.light .footer {
+      background: #e4e6e9;
+      color: #555a63;
+    }
+
+    body.light .footer strong {
+      color: #202228 !important;
+    }
+
+    body.light .thank-you {
+      background: rgba(20,22,27,.45);
+    }
+
+    body.light .thank-you-box {
+      background: #ffffff;
+      color: #202228;
+      border-color: rgba(0,0,0,.12);
+    }
+
+    body.light .thank-you-box h3 {
+      color: #202228;
+    }
+
+    body.light .thank-you-box p {
+      color: #555a63;
+    }
+
+    body.light .btn-secondary {
+      color: #202228;
+      background: #ffffff;
+      border-color: rgba(0,0,0,.14);
+    }
+
+    body.light .btn-secondary:hover {
+      background: #f0f1f3;
+    }
+
+
+
+    /* ===== Cabeçalho refinado ===== */
+    .header{height:88px;background:rgba(8,9,11,.94);border-bottom:1px solid var(--line);box-shadow:0 8px 28px rgba(0,0,0,.16)}
+    .nav{height:88px;min-height:88px;position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+    .header-left,.header-right{display:flex;align-items:center;z-index:3}
+    .header-left{justify-content:flex-start}.header-right{justify-content:flex-end}
+    .brand{display:none}
+    .hamburger-btn,.search-btn{width:48px;height:48px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.05);color:var(--text);display:grid;place-items:center;cursor:pointer;transition:.22s;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+    .hamburger-btn:hover,.search-btn:hover{transform:translateY(-2px);border-color:rgba(255,176,0,.55);background:rgba(255,176,0,.10)}
+    .hamburger-icon{width:24px;height:18px;display:grid;align-content:space-between}.hamburger-icon span{display:block;height:2px;border-radius:4px;background:currentColor;width:100%}
+    .search-icon{width:19px;height:19px;border:3px solid currentColor;border-radius:50%;position:relative}.search-icon::after{content:"";position:absolute;width:10px;height:3px;background:currentColor;border-radius:3px;right:-8px;bottom:-5px;transform:rotate(48deg)}
+    .logo-frame{width:min(430px,58vw);aspect-ratio:3/1;border:1px solid rgba(255,176,0,.34);border-radius:12px;background:rgba(255,255,255,.035);display:grid;place-items:center;overflow:hidden;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.025),0 10px 30px rgba(0,0,0,.12)}
+    .logo-frame img{width:100%;height:100%;object-fit:contain;display:block}.logo-dark{display:block}.logo-light{display:none}
+    body.light .header{background:rgba(245,245,246,.96)}
+    body.light .hamburger-btn,body.light .search-btn{background:rgba(0,0,0,.035);border-color:rgba(0,0,0,.12);color:#202228}
+    body.light .logo-frame{background:#fff;border-color:rgba(0,0,0,.12)}
+    body.light .logo-dark{display:none}body.light .logo-light{display:block}
+    body.light .logo-light{display:block}body.light .logo-dark{display:none}
+    /* Evita qualquer aparição da logo preta no tema escuro. */
+    .logo-light{display:none !important}
+    body.light .logo-light{display:block !important}
+    body.light .logo-dark{display:none !important}
+
+    /* Menu lateral */
+    .drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);z-index:1450;opacity:0;pointer-events:none;transition:.25s}
+    .drawer-backdrop.open{opacity:1;pointer-events:auto}
+    .side-drawer{position:fixed;top:0;left:0;bottom:0;width:min(380px,88vw);background:#101216;color:var(--text);z-index:1500;transform:translateX(-105%);transition:transform .3s cubic-bezier(.22,.8,.22,1);box-shadow:22px 0 70px rgba(0,0,0,.4);overflow-y:auto;padding:24px}
+    .side-drawer.open{transform:translateX(0)}
+    .drawer-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+    .drawer-title{font-size:18px;font-weight:900}.drawer-sub{font-size:12px;color:var(--muted);margin-top:2px}
+    .drawer-close{width:40px;height:40px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);cursor:pointer;font-size:22px}
+    .drawer-nav{display:grid;gap:8px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .drawer-nav a{padding:13px 14px;border-radius:11px;font-weight:750;color:var(--text);transition:.2s}.drawer-nav a:hover{background:rgba(255,176,0,.10);color:var(--accent)}
+    .drawer-settings{padding-top:22px}.drawer-settings h4{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:12px}
+    .drawer-setting-group{display:grid;gap:9px;margin-bottom:18px}.drawer-setting-label{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.6px}.drawer-options{display:flex;flex-wrap:wrap;gap:7px}.drawer-options button{border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);border-radius:9px;padding:8px 11px;cursor:pointer}.drawer-options button:hover,.drawer-options button.active{border-color:var(--accent);color:var(--accent)}
+    body.light .side-drawer{background:#fff;color:#202228}body.light .side-drawer{background:#fff}body.light .drawer-close{color:#202228}
+    body.light .drawer-close,body.light .drawer-options button{color:#202228;background:#f3f4f6;border-color:rgba(0,0,0,.12)}
+    body.light .drawer-nav a{color:#202228}body.light .drawer-nav a{color:#202228}
+    body.light .drawer-nav a:hover{background:#fff8e7;color:#b76500}
+
+    /* Pesquisa */
+    .search-panel{position:fixed;top:88px;left:50%;width:min(720px,calc(100% - 28px));transform:translate(-50%,-12px) scale(.98);background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.35);z-index:1400;opacity:0;pointer-events:none;transition:.22s;padding:18px}
+    .search-panel.open{opacity:1;pointer-events:auto;transform:translate(-50%,8px) scale(1)}
+    .search-row{display:flex;gap:10px}.search-input{flex:1;min-height:48px;border:1px solid var(--line);border-radius:11px;background:var(--bg-soft);color:var(--text);padding:0 14px;font-size:16px;outline:none}.search-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,176,0,.10)}
+    .search-clear{width:48px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.04);color:var(--text);cursor:pointer}.search-results{margin-top:12px;display:grid;gap:7px;max-height:340px;overflow:auto}.search-result{display:block;padding:11px 12px;border-radius:10px;border:1px solid transparent}.search-result:hover{background:rgba(255,176,0,.08);border-color:rgba(255,176,0,.2)}.search-result strong{display:block}.search-result span{display:block;font-size:12px;color:var(--muted);margin-top:2px}.search-empty{padding:15px;color:var(--muted);font-size:14px}
+    body.light .search-panel{background:#fff}body.light .search-input{background:#f6f7f8;color:#202228}body.light .search-clear{color:#202228}
+    body.light .search-input{background:#f6f7f8;color:#202228}body.light .search-result{color:#202228}
+
+    /* Botões flutuantes: aparência acima do WhatsApp */
+    .floating-tools{position:fixed;right:18px;bottom:92px;z-index:1250;display:grid;gap:10px}.floating-tools .settings-button{width:50px;height:50px}
+    .whatsapp-float{z-index:1250}
+    .settings-panel{top:auto;right:18px;bottom:152px;width:min(340px,calc(100% - 32px));z-index:1260}
+    @media(max-width:620px){
+      .header,.nav{height:76px;min-height:76px}.search-panel{top:76px}.logo-frame{width:min(300px,58vw);border-radius:9px}.hamburger-btn,.search-btn{width:44px;height:44px}.floating-tools{right:14px;bottom:88px}.settings-panel{right:14px;bottom:148px;top:auto}
+    }
+
+  
+    /* ===== Refinamentos v4: logo sem moldura, destaque no cabeçalho e logo de fundo ===== */
+    body {
+      --hero-logo: url("branca.png");
+    }
+
+    .header, .nav {
+      overflow: visible;
+    }
+
+    .logo-frame {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: min(420px, 48vw);
+      height: 140px;
+      aspect-ratio: auto;
+      border: 0 !important;
+      border-radius: 0;
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 0;
+      overflow: visible;
+      z-index: 4;
+    }
+
+    .logo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .hero {
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      width: min(620px, 58vw);
+      height: min(620px, 58vw);
+      right: -1%;
+      top: 50%;
+      transform: translateY(-50%);
+      background-image: var(--hero-logo);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: .075;
+      pointer-events: none;
+      filter: none;
+    }
+
+    .hero-content {
+      z-index: 1;
+    }
+
+    body.light {
+      --hero-logo: url("preta.png");
+    }
+
+    /* Aparência deve ter exatamente o mesmo diâmetro do botão do WhatsApp/telefone. */
+    .floating-tools .settings-button,
+    .settings-button {
+      width: 58px !important;
+      height: 58px !important;
+      min-width: 58px;
+      min-height: 58px;
+      padding: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+    @media (min-width: 901px) {
+      .logo-frame {
+        width: min(460px, 44vw);
+        height: 153px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .logo-frame {
+        width: min(390px, 52vw);
+        height: 130px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .logo-frame {
+        width: min(300px, 68vw);
+        height: 100px;
+      }
+      .hero::after {
+        width: 430px;
+        height: 430px;
+        right: -145px;
+        top: 43%;
+        opacity: .055;
+      }
+    }
+
+  
+    /* ===== Refinamentos v5 ===== */
+    /* Logo do cabeçalho menor e ligeiramente deslocada para a esquerda, sem cobrir a lupa. */
+    @media (min-width: 901px) {
+      .logo-frame {
+        left: 48%;
+        width: min(400px, 40vw);
+        height: 133px;
+      }
+    }
+    @media (min-width: 621px) and (max-width: 900px) {
+      .logo-frame {
+        left: 48%;
+        width: min(360px, 48vw);
+        height: 120px;
+      }
+    }
+    @media (max-width: 620px) {
+      .logo-frame {
+        left: 47%;
+        width: min(285px, 64vw);
+        height: 95px;
+      }
+    }
+
+    /* O símbolo usado na área Sobre acompanha o tema. */
+    .about-logo-mark {
+      width: min(190px, 55%);
+      height: 190px;
+      object-fit: contain;
+      object-position: left center;
+      display: block;
+      margin-bottom: 18px;
+    }
+    .about-logo-light { display: none; }
+    body.light .about-logo-dark { display: none; }
+    body.light .about-logo-light { display: block; }
+    @media (max-width: 620px) {
+      .about-logo-mark { width: 145px; height: 145px; }
+    }
+
+    /* Ícone oficial estilizado do WhatsApp dentro do botão verde. */
+    .whatsapp-float svg {
+      width: 28px;
+      height: 28px;
+      display: block;
+      fill: currentColor;
+    }
+
+
+    /* ===== v6: lupa no canto esquerdo + marca d'água da logo deslocada para a esquerda ===== */
+    .header-left {
+      gap: 10px;
+    }
+
+    .header-search-left {
+      flex: 0 0 auto;
+    }
+
+    .header-right {
+      min-width: 0;
+    }
+
+    /* A marca d'água preta/branca fica atrás do texto principal, deslocada para a esquerda. */
+    .hero::after {
+      left: -8%;
+      right: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      width: min(620px, 58vw);
+      height: min(620px, 58vw);
+      background-position: center;
+    }
+
+    @media (min-width: 901px) {
+      .hero::after {
+        left: -7%;
+        width: min(650px, 52vw);
+        height: min(650px, 52vw);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero::after {
+        left: -18%;
+        right: auto;
+        width: min(500px, 82vw);
+        height: min(500px, 82vw);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .header-left {
+        gap: 7px;
+      }
+
+      .hamburger-btn,
+      .search-btn {
+        width: 44px;
+        height: 44px;
+      }
+
+      .hero::after {
+        left: -24%;
+        width: 430px;
+        height: 430px;
+      }
+    }
+
+
+    /* ===== v7: lupa no canto direito ===== */
+    .header-left {
+      gap: 0;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 0;
+    }
+
+    .header-right .search-btn {
+      flex: 0 0 auto;
+    }
+
+
+    /* ===== v8: lupa realmente presa ao canto direito ===== */
+    .nav {
+      position: relative !important;
+    }
+
+    .header-right {
+      position: absolute !important;
+      right: 0 !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-end !important;
+      z-index: 20 !important;
+    }
+
+    .header-right .search-btn {
+      position: relative !important;
+      right: 0 !important;
+      left: auto !important;
+      margin: 0 !important;
+    }
+
+    @media (max-width: 620px) {
+      .header-right {
+        right: 0 !important;
+      }
+    }
+
+    /* Mantém o GS&V visível no quadro da identidade. */
+    .about-gsv {
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: .9;
+      font-weight: 950;
+      letter-spacing: -0.06em;
+      color: var(--text);
+      margin: 0 0 8px;
+    }
+
+    body.light .about-gsv {
+      color: #202228;
+    }
+
+
+    /* ===== v9: área de avaliações ===== */
+    .reviews-section {
+      padding: 96px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reviews-section .section-head {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .reviews-grid {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .review-card {
+      padding: 28px 25px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 22px;
+      background: rgba(255,255,255,.045);
+      box-shadow: 0 14px 40px rgba(0,0,0,.12);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,125,0,.42);
+      box-shadow: 0 20px 48px rgba(0,0,0,.18);
+    }
+
+    .review-stars {
+      color: #ff9f1c;
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      line-height: 1;
+      margin-bottom: 18px;
+      text-shadow: 0 0 14px rgba(255,159,28,.20);
+    }
+
+    .review-text {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: .98rem;
+    }
+
+    .review-person {
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .review-role {
+      color: var(--muted);
+      font-size: .82rem;
+      margin-top: 3px;
+    }
+
+    body.light .review-card {
+      background: #fff;
+      border-color: rgba(25,30,38,.10);
+      box-shadow: 0 14px 34px rgba(20,25,35,.08);
+    }
+
+    body.light .review-text,
+    body.light .review-role {
+      color: #626a76;
+    }
+
+    body.light .review-person {
+      color: #202228;
+    }
+
+    @media (max-width: 980px) {
+      .reviews-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .reviews-section {
+        padding: 72px 0;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+        width: min(100% - 28px, 560px);
+      }
+
+      .review-card {
+        padding: 24px 21px;
+      }
+    }
+
+
+    /* ===== v10: avaliações sempre visíveis ===== */
+    #avaliacoes .reviews-grid {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    #avaliacoes .review-card {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+    }
+
+    /* Tamanho de fonte: a escala é aplicada ao texto de todos os elementos, não apenas ao <html>. */
+    body.font-small, body.font-normal, body.font-large {
+      --site-font-scale: 1;
+    }
+
+  </style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style id="professional-icons">
+  .fa-solid,.fa-regular,.fa-brands{font-family:"Font Awesome 6 Free","Font Awesome 6 Brands" !important;font-style:normal;line-height:1;display:inline-block}
+  .fa-solid,.fa-regular{font-weight:900}
+  .fa-brands{font-weight:400}
+  .search-btn i,.menu-btn i,.close-btn i,.settings-btn i,.header-right i,
+  .whatsapp-float i,.contact-icon i,.service-icon i,.review-card i{font-size:1em}
+  .stars{display:inline-flex;gap:3px;align-items:center}
+  .stars i{font-size:.9em}
+  button i,a i{pointer-events:none}
+</style>
+
+<style id="audio-professional-icons">
+  .service-icon i,
+  .feature-icon i,
+  .benefit-icon i {
+    font-size: 1.35em;
+    line-height: 1;
+    display: inline-block;
+    font-family: "Font Awesome 6 Free","Font Awesome 6 Brands" !important;
+    font-weight: 900;
+    font-style: normal;
+  }
+  .service-icon, .feature-icon, .benefit-icon {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+</style>
+
+<style id="v13-refinements">
+/* Logo principal: um pouco menor no computador, mantendo o tamanho confortável no celular */
+@media (min-width: 769px) {
+  .logo-branca, .logo-preta,
+  .main-logo, .header-logo,
+  .nav-logo, .logo img {
+    max-height: 78px !important;
+    width: auto !important;
+  }
+}
+
+/* Tema claro: reforça a leitura das quatro frases da seção
+   "Experiência, técnica e atenção aos detalhes". */
+body.light-theme .experience-section p,
+body.light-theme .experience-section li,
+body.light-theme .experience-section .experience-item,
+body.light-theme .experience-section .feature-text,
+body.light-theme .experience-section .feature-item,
+body.light-theme .experience-section .card-text {
+  color: #1f2937 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+body.light-theme .experience-section {
+  color: #172033 !important;
+}
+
+/* Compatibilidade com classes alternativas usadas na seção */
+body.light-theme .experience-text,
+body.light-theme .experience-list,
+body.light-theme .experience-list li {
+  color: #1f2937 !important;
+  opacity: 1 !important;
+}
+</style>
+
+<style id="v13-experience-highlight">
+body.light-theme .experience-highlight {
+  color: #172033 !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+</style>
+<link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container nav">
+      <div class="header-left">
+        <button class="hamburger-btn" type="button" onclick="toggleDrawer()" aria-label="Abrir menu" title="Menu">
+          <span class="hamburger-icon"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+
+      <a href="#inicio" class="logo-frame" aria-label="Gladyson Sound&Vision - início">
+        <img class="logo-dark" src="logo-branca.png" alt="Gladyson Sound&Vision - logo branca">
+        <img class="logo-light" src="logo-preta.png" alt="Gladyson Sound&Vision - logo preta">
+      </a>
+
+      <div class="header-right">
+        <button class="search-btn" type="button" onclick="toggleSearch()" aria-label="Pesquisar no site" title="Pesquisar">
+          <span class="search-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeDrawer()"></div>
+  <aside class="side-drawer" id="sideDrawer" aria-label="Menu principal">
+    <div class="drawer-head">
+      <div><div class="drawer-title">Gladyson Sound&Vision</div><div class="drawer-sub">Soluções em áudio</div></div>
+      <button class="drawer-close" type="button" onclick="closeDrawer()" aria-label="Fechar menu">×</button>
+    </div>
+    <nav class="drawer-nav" aria-label="Navegação do site">
+      <a href="#inicio" onclick="closeDrawer()">Início</a>
+      <a href="#servicos" onclick="closeDrawer()">Serviços</a>
+      <a href="#processo" onclick="closeDrawer()">Como trabalhamos</a>
+      <a href="#sobre" onclick="closeDrawer()">Sobre</a>
+      <a href="#avaliacoes" onclick="closeDrawer()">Avaliações</a>
+          <a href="#contato" onclick="closeDrawer()">Contato</a>
+      <a href="#contato" onclick="closeDrawer()">Orçamento</a>
+    </nav>
+    <div class="drawer-settings">
+      <h4>Aparência e acessibilidade</h4>
+      <div class="drawer-setting-group"><div class="drawer-setting-label">Tema</div><div class="drawer-options">
+        <button type="button" onclick="setTheme('dark')" id="drawerDarkBtn">Escuro</button>
+        <button type="button" onclick="setTheme('light')" id="drawerLightBtn">Claro</button>
+      </div></div>
+      <div class="drawer-setting-group"><div class="drawer-setting-label">Tamanho da fonte</div><div class="drawer-options">
+        <button type="button" onclick="setFontSize('small')">A−</button>
+        <button type="button" onclick="setFontSize('normal')">A</button>
+        <button type="button" onclick="setFontSize('large')">A+</button>
+      </div></div>
+      <div class="drawer-setting-group"><div class="drawer-setting-label">Estilo da fonte</div><div class="drawer-options">
+        <button type="button" onclick="setFont('arial')">Padrão</button>
+        <button type="button" onclick="setFont('serif')">Serifada</button>
+        <button type="button" onclick="setFont('mono')">Monoespaçada</button>
+      </div></div>
+    </div>
+  </aside>
+
+  <div class="search-panel" id="searchPanel" aria-label="Pesquisa no site">
+    <div class="search-row">
+      <input class="search-input" id="siteSearchInput" type="search" placeholder="Pesquisar no site..." autocomplete="off" aria-label="Pesquisar no site">
+      <button class="search-clear" type="button" onclick="closeSearch()" aria-label="Fechar pesquisa">×</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <aside class="settings-panel" id="settingsPanel" aria-label="Configurações de aparência">
+    <h3><i class="fa-solid fa-sliders" aria-hidden="true"></i> Aparência e acessibilidade</h3>
+    <div class="settings-group"><label>Tema</label><div class="settings-options">
+      <button type="button" onclick="setTheme('dark')" id="darkBtn">Escuro</button>
+      <button type="button" onclick="setTheme('light')" id="lightBtn">Claro</button>
+    </div></div>
+    <div class="settings-group"><label>Tamanho da fonte</label><div class="settings-options">
+      <button type="button" onclick="setFontSize('small')">A−</button>
+      <button type="button" onclick="setFontSize('normal')">A</button>
+      <button type="button" onclick="setFontSize('large')">A+</button>
+    </div></div>
+    <div class="settings-group"><label>Estilo da fonte</label><div class="settings-options">
+      <button type="button" onclick="setFont('arial')">Padrão</button>
+      <button type="button" onclick="setFont('serif')">Serifada</button>
+      <button type="button" onclick="setFont('mono')">Monoespaçada</button>
+    </div></div>
+  </aside>
+
+  <main>
+
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Região Metropolitana de BH</div>
+
+          <div class="slogan">“Qualidade que se ouve, Presença que se Vê.”</div>
+
+          <h1>
+            Seu som merece ser
+            <strong>ouvido do jeito certo.</strong>
+          </h1>
+
+          <p>
+            Instalação, manutenção, configuração e regulagem de sistemas de áudio
+            para igrejas, empresas, eventos, comércios e outros ambientes.
+          </p>
+
+          <div class="actions">
+            <!-- TROQUE O NÚMERO ABAIXO PELO WHATSAPP DA EMPRESA -->
+            <a class="btn btn-primary" href="https://wa.me/5531991518281" target="_blank" rel="noopener">
+              <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> Solicitar orçamento
+            </a>
+            <a class="btn btn-secondary" href="#servicos">
+              <i class="fa-solid fa-volume-high" aria-hidden="true"></i> Conhecer serviços
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">O que fazemos</div>
+          <h2>Soluções para o seu sistema de som.</h2>
+          <p>
+            Do primeiro cabo à regulagem final, cuidamos dos detalhes para que
+            seu sistema funcione de forma organizada e eficiente.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="icon"><i class="fa-solid fa-sliders" aria-hidden="true"></i></div>
+            <h3>Instalação de Som</h3>
+            <p>
+              Instalação e configuração de equipamentos e sistemas de áudio
+              de acordo com as necessidades de cada ambiente.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon"><i class="fa-solid fa-wrench" aria-hidden="true"></i></div>
+            <h3>Manutenção</h3>
+            <p>
+              Diagnóstico de problemas e manutenção preventiva ou corretiva
+              para manter o sistema funcionando adequadamente.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon"><i class="fa-solid fa-sliders" aria-hidden="true"></i></div>
+            <h3>Regulagem e Equalização</h3>
+            <p>
+              Ajustes de equalização, ganho, níveis e configuração para buscar
+              mais clareza, equilíbrio e definição sonora.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon"><i class="fa-solid fa-microphone" aria-hidden="true"></i></div>
+            <h3>Microfones e Voz</h3>
+            <p>
+              Configuração e regulagem de microfones, mesas, processadores,
+              amplificadores e equipamentos de voz.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></div>
+            <h3>Cabeamento e Organização</h3>
+            <p>
+              Instalação e organização de cabos e conexões para deixar o
+              sistema mais funcional e organizado.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></div>
+            <h3>Projetos de Sonorização</h3>
+            <p>
+              Orientação e planejamento de soluções de áudio conforme o
+              ambiente e as necessidades do cliente.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="problems">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Seu sistema está assim?</div>
+          <h2>Problemas de som não precisam fazer parte da rotina.</h2>
+          <p>
+            Se o sistema apresenta falhas, ruídos ou falta de definição,
+            podemos avaliar a situação e indicar o serviço adequado.
+          </p>
+        </div>
+
+        <div class="problem-list">
+          <div class="problem"><b>●</b> Microfonia</div>
+          <div class="problem"><b>●</b> Ruídos e interferências</div>
+          <div class="problem"><b>●</b> Voz abafada</div>
+          <div class="problem"><b>●</b> Som sem definição</div>
+          <div class="problem"><b>●</b> Volume desigual</div>
+          <div class="problem"><b>●</b> Equipamentos mal configurados</div>
+        </div>
+
+        <a class="btn btn-primary" href="#contato">Falar com a Gladyson Sound&Vision</a>
+      </div>
+    </section>
+
+    <section class="process" id="processo">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Nosso processo</div>
+          <h2>Do diagnóstico à regulagem.</h2>
+          <p>
+            Um processo simples para entender o problema, executar o serviço
+            e entregar o sistema pronto para uso.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">01</div>
+            <h3>Avaliação</h3>
+            <p>Entendemos o ambiente, os equipamentos e a necessidade.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">02</div>
+            <h3>Diagnóstico</h3>
+            <p>Identificamos problemas de instalação, manutenção ou regulagem.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">03</div>
+            <h3>Execução</h3>
+            <p>Realizamos o serviço com atenção à organização e ao funcionamento.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">04</div>
+            <h3>Regulagem</h3>
+            <p>Ajustamos o sistema buscando o melhor resultado para o ambiente.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">05</div>
+            <h3>Entrega</h3>
+            <p>Orientamos o cliente sobre a utilização adequada do sistema.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <div class="container about-wrap">
+
+        <div class="about-box">
+          <div class="about-gsv" aria-label="GS&V">GS&V</div>
+          <img class="about-logo-mark about-logo-dark" src="branca.png" alt="Gladyson Sound&Vision">
+          <img class="about-logo-mark about-logo-light" src="preta.png" alt="Gladyson Sound&Vision">
+          <p>
+            Instalação • Manutenção • Regulagem
+          </p>
+          <p>
+            Atendimento na Região Metropolitana de Belo Horizonte.
+          </p>
+        </div>
+
+        <div>
+          <div class="section-kicker">Sobre a empresa</div>
+          <h2>Experiência, técnica e atenção aos detalhes.</h2>
+
+          <p>
+            A <strong>Gladyson Sound&Vision</strong> atua com instalação,
+            manutenção e regulagem de sistemas de som, oferecendo soluções
+            de áudio de acordo com as necessidades de cada cliente.
+          </p>
+
+          <p style="margin-top: 16px;">
+            Nosso trabalho vai da organização e instalação dos equipamentos
+            à configuração e regulagem do sistema, buscando um resultado
+            sonoro equilibrado, funcional e adequado ao ambiente.
+          </p>
+
+          <ul>
+            <li><span class="experience-highlight">Atendimento na Região Metropolitana de BH</span></li>
+            <li><span class="experience-highlight">Instalação e configuração de sistemas de áudio</span></li>
+            <li><span class="experience-highlight">Manutenção e diagnóstico de problemas</span></li>
+            <li><span class="experience-highlight">Regulagem e equalização</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    
+    <!-- AVALIAÇÕES -->
+    <section class="reviews-section" id="avaliacoes">
+      <div class="section-head reveal">
+        <span class="eyebrow">AVALIAÇÕES</span>
+        <h2>O que nossos clientes dizem</h2>
+        <p>Veja o que nossos clientes dizem sobre nossos serviços.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <article class="review-card reveal">
+          <div class="review-stars" aria-label="5 de 5 estrelas"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="review-text">“O som ficou muito mais limpo e potente. A equipe fez a instalação com muito cuidado e explicou tudo para a gente.”</p>
+          <div class="review-person">Carlos Henrique</div>
+          <div class="review-role">Cliente</div>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="review-stars" aria-label="5 de 5 estrelas"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="review-text">“Excelente atendimento e muita atenção aos detalhes. O sistema ficou exatamente como precisávamos.”</p>
+          <div class="review-person">Mariana Alves</div>
+          <div class="review-role">Cliente</div>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="review-stars" aria-label="5 de 5 estrelas"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="review-text">“Resolveram um problema de áudio que já vinha acontecendo há bastante tempo. Ficou ótimo depois do ajuste.”</p>
+          <div class="review-person">Rafael Souza</div>
+          <div class="review-role">Cliente</div>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="review-stars" aria-label="5 de 5 estrelas"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="review-text">“Serviço profissional do começo ao fim. A instalação ficou organizada e o resultado no som foi excelente.”</p>
+          <div class="review-person">Fernanda Martins</div>
+          <div class="review-role">Cliente</div>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="review-stars" aria-label="5 de 5 estrelas"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <p class="review-text">“Gostei muito do resultado. Atendimento rápido, serviço bem feito e uma ótima regulagem do equipamento.”</p>
+          <div class="review-person">André Oliveira</div>
+          <div class="review-role">Cliente</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container contact-grid">
+
+        <div>
+          <div class="section-kicker">Entre em contato</div>
+          <h2>Vamos conversar sobre o seu som?</h2>
+          <p class="section-head" style="margin-bottom: 0;">
+            Envie uma mensagem contando o que você precisa. Se possível,
+            mande fotos ou vídeos do sistema pelo WhatsApp para facilitar
+            a avaliação inicial.
+          </p>
+
+          <div class="contact-info">
+            <div class="contact-item">
+              <small>WhatsApp</small>
+              <strong>(31) 99151-8281</strong>
+            </div>
+
+            <div class="contact-item">
+              <small>Atendimento</small>
+              <strong>Região Metropolitana de Belo Horizonte - MG</strong>
+            </div>
+
+            <div class="contact-item">
+              <small>E-mail</small>
+              <strong><a href="mailto:contato@soundvision.com.br">contato@soundvision.com.br</a></strong>
+            </div>
+
+            <div class="contact-item">
+              <small>Instagram</small>
+              <strong>@gladysonsoundvision</strong>
+            </div>
+          </div>
+        </div>
+
+        <form onsubmit="enviarOrcamento(event)">
+          <div class="form-row">
+            <label>
+              Nome
+              <input id="nome" type="text" placeholder="Seu nome" required>
+            </label>
+
+            <label>
+              WhatsApp
+              <input id="telefone" type="tel" placeholder="(00) 00000-0000">
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Cidade
+              <input id="cidade" type="text" placeholder="Sua cidade">
+            </label>
+
+            <label>
+              Serviço
+              <select id="servico">
+                <option value="Instalação">Instalação</option>
+                <option value="Manutenção">Manutenção</option>
+                <option value="Regulagem / Equalização">Regulagem / Equalização</option>
+                <option value="Projeto de sonorização">Projeto de sonorização</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Conte o que você precisa
+            <textarea id="mensagem" placeholder="Descreva brevemente o problema ou o projeto..."></textarea>
+          </label>
+
+          <button class="btn btn-primary" type="submit">
+            Enviar
+          </button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div class="thank-you" id="thankYou" role="dialog" aria-modal="true" aria-labelledby="thankTitle">
+    <div class="thank-you-box">
+      <div class="thank-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+      <h3 id="thankTitle">Solicitação recebida!</h3>
+      <p>Obrigado pelo contato com a Gladyson Sound&Vision. Entraremos em contato o quanto antes possível.</p>
+      <button class="btn btn-primary" type="button" onclick="fecharAgradecimento()">OK</button>
+    </div>
+  </div>
+
+
+  
+  <div class="cookie-banner" id="cookieBanner">
+    <p><strong>🍪 Este site utiliza cookies.</strong> Usamos cookies para melhorar sua experiência de navegação e lembrar suas preferências de aparência.</p>
+    <button class="cookie-ok" type="button" onclick="aceitarCookies()">OK</button>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="color:#fff;">GLADYSON SOUND&VISION</strong><br>
+        Soluções em áudio.
+      </div>
+      <div>
+        © <span id="ano"></span> Gladyson Sound&Vision. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- FERRAMENTAS FLUTUANTES -->
+  <div class="floating-tools" aria-label="Ferramentas de acessibilidade">
+    <button class="settings-button" type="button" onclick="toggleSettings()" aria-label="Abrir configurações de aparência" title="Aparência e acessibilidade"><i class="fa-solid fa-sliders" aria-hidden="true"></i></button>
+  </div>
+
+  <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5531991518281"
+    target="_blank"
+    rel="noopener"
+    aria-label="Falar com a Gladyson Sound&Vision pelo WhatsApp"
+    title="Falar pelo WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 3.2a12.7 12.7 0 0 0-10.9 19.2L3.2 28.8l6.6-1.8A12.8 12.8 0 1 0 16 3.2Zm0 23.2c-2 0-3.9-.6-5.5-1.7l-.4-.3-3.9 1.1 1-3.8-.3-.4A10.3 10.3 0 1 1 16 26.4Zm5.7-7.6c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.3-.6.1-1.6-.8-2.6-1.5-3.6-3.3-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.1 2.9 1.1 3.5.9 4.1.8.6-.1 1.9-.8 2.2-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.5Z"/>
+    </svg>
+  </a>
+
+  <script>
+    document.getElementById("ano").textContent = new Date().getFullYear();
+    const WHATSAPP = "5531991518281";
+
+    function toggleSettings(){document.getElementById("settingsPanel").classList.toggle("open")}
+    function toggleDrawer(){document.getElementById("sideDrawer").classList.add("open");document.getElementById("drawerBackdrop").classList.add("open");document.body.style.overflow="hidden"}
+    function closeDrawer(){document.getElementById("sideDrawer").classList.remove("open");document.getElementById("drawerBackdrop").classList.remove("open");document.body.style.overflow=""}
+    function toggleSearch(){const p=document.getElementById("searchPanel");p.classList.toggle("open");if(p.classList.contains("open")){document.getElementById("siteSearchInput").focus();renderSearch("")}}
+    function closeSearch(){document.getElementById("searchPanel").classList.remove("open")}
+    function setTheme(theme){
+      document.body.classList.toggle("light",theme==="light");
+      localStorage.setItem("theme",theme);
+      ["darkBtn","drawerDarkBtn"].forEach(id=>{const e=document.getElementById(id);if(e)e.classList.toggle("active",theme==="dark")});
+      ["lightBtn","drawerLightBtn"].forEach(id=>{const e=document.getElementById(id);if(e)e.classList.toggle("active",theme==="light")});
+    }
+
+    /*
+      O site usa vários tamanhos em px. Alterar apenas o font-size do <html>
+      não mudava esses textos. Aqui guardamos o tamanho original de cada
+      elemento e aplicamos a mesma escala a todo o conteúdo, inclusive
+      títulos, cartões, botões, formulários, menu e textos gerados pela página.
+    */
+    let fontSizeReady = false;
+    let fontSizeElements = [];
+    function prepareFontSizes(){
+      if(fontSizeReady) return;
+      fontSizeElements = Array.from(document.body.querySelectorAll("*"));
+      fontSizeElements.forEach(el=>{
+        const px=parseFloat(getComputedStyle(el).fontSize);
+        if(Number.isFinite(px) && px>0) el.dataset.baseFontSize=px;
+      });
+      fontSizeReady=true;
+    }
+    function setFontSize(size){
+      prepareFontSizes();
+      const scale={small:0.875,normal:1,large:1.125}[size]||1;
+      document.documentElement.style.fontSize="16px";
+      document.body.dataset.fontSize=size;
+      document.body.classList.remove("font-small","font-normal","font-large");
+      document.body.classList.add("font-"+size);
+      fontSizeElements.forEach(el=>{
+        const base=parseFloat(el.dataset.baseFontSize);
+        if(Number.isFinite(base)) el.style.fontSize=(base*scale).toFixed(2)+"px";
+      });
+      localStorage.setItem("fontSize",size);
+    }
+    function setFont(font){const f={arial:"Arial,Helvetica,sans-serif",serif:"Georgia,'Times New Roman',serif",mono:"'Courier New',Courier,monospace"};document.body.style.fontFamily=f[font];localStorage.setItem("font",font)}
+    function aceitarCookies(){localStorage.setItem("cookiesAccepted","true");document.getElementById("cookieBanner").style.display="none"}
+    function formatarNome(v){const pequenas=["da","de","do","das","dos","e"];const finalEspaco=/\s$/.test(v);const partes=v.toLowerCase().split(/\s+/);let out=partes.map(n=>!n?"":pequenas.includes(n)?n:n.charAt(0).toUpperCase()+n.slice(1)).join(" ");if(finalEspaco && out && !out.endsWith(" ")) out+=" ";return out}
+    function formatarTelefone(v){const d=v.replace(/\D/g,"").slice(0,11);if(!d)return "";if(d.length<=2)return "("+d;if(d.length<=7)return "("+d.slice(0,2)+") "+d.slice(2);return "("+d.slice(0,2)+") "+d.slice(2,7)+"-"+d.slice(7)}
+    document.getElementById("nome").addEventListener("input",function(){this.value=formatarNome(this.value)});
+    document.getElementById("telefone").addEventListener("input",function(){this.value=formatarTelefone(this.value)});
+
+    function enviarOrcamento(event){
+      event.preventDefault();
+      const nome=formatarNome(document.getElementById("nome").value.trim());
+      const telefone=document.getElementById("telefone").value.trim();
+      const cidade=document.getElementById("cidade").value.trim();
+      const servico=document.getElementById("servico").value;
+      const mensagem=document.getElementById("mensagem").value.trim();
+      const texto=["Olá, Gladyson Sound&Vision!","",`Meu nome é ${nome}.`,`WhatsApp: ${telefone||"não informado"}`,`Cidade: ${cidade||"não informada"}`,`Serviço: ${servico}`,`Mensagem: ${mensagem||"Gostaria de solicitar um orçamento."}`].join("\n");
+      window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`,"_blank","noopener");
+      document.getElementById("thankYou").classList.add("show");
+      event.target.reset();
+    }
+    function fecharAgradecimento(){document.getElementById("thankYou").classList.remove("show")}
+
+    const searchItems=[
+      {title:"Início",section:"Apresentação",href:"#inicio",text:"Gladyson Sound&Vision. Qualidade que se ouve, Presença que se Vê. Soluções em áudio na Região Metropolitana de Belo Horizonte."},
+      {title:"Serviços",section:"Soluções em áudio",href:"#servicos",text:"Instalação, manutenção, regulagem, configuração, orientação e planejamento de sistemas de som."},
+      {title:"Como trabalhamos",section:"Processo",href:"#processo",text:"Atendimento, diagnóstico, execução e entrega da solução de áudio."},
+      {title:"Sobre",section:"A empresa",href:"#sobre",text:"Experiência e cuidado técnico para sistemas de áudio organizados, eficientes e bem regulados."},
+      {title:"Contato",section:"Fale conosco",href:"#contato",text:"WhatsApp, telefone, e-mail e formulário para solicitar orçamento."},
+      {title:"Orçamento",section:"Solicitação",href:"#contato",text:"Envie seus dados e descreva o que precisa para receber atendimento."}
+    ];
+    function renderSearch(q){const box=document.getElementById("searchResults");const term=q.trim().toLowerCase();const found=searchItems.filter(x=>!term||(x.title+" "+x.section+" "+x.text).toLowerCase().includes(term));if(!term){box.innerHTML='<div class="search-empty">Digite o que você procura, como “instalação”, “manutenção” ou “orçamento”.</div>';return}if(!found.length){box.innerHTML='<div class="search-empty">Nenhum resultado encontrado.</div>';return}box.innerHTML=found.map(x=>`<a class="search-result" href="${x.href}" onclick="closeSearch()"><strong>${x.title}</strong><span>${x.section} · ${x.text}</span></a>`).join("")}
+    document.getElementById("siteSearchInput").addEventListener("input",function(){renderSearch(this.value)});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeSearch();closeDrawer();document.getElementById("settingsPanel").classList.remove("open")}});
+    document.addEventListener("click",function(e){
+      const p=document.getElementById("settingsPanel"),b=document.querySelector(".floating-tools .settings-button");
+      if(p.classList.contains("open")&&!p.contains(e.target)&&!b.contains(e.target))p.classList.remove("open");
+    });
+
+    const els=document.querySelectorAll(".card,.step,.about-box,.contact-item,.section-head,.problem");
+    els.forEach(e=>e.classList.add("reveal"));
+    const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}}),{threshold:.12});
+    els.forEach(e=>obs.observe(e));
+
+    /* Tema claro é o padrão. O escuro só entra quando a pessoa escolher. */
+    const theme=localStorage.getItem("theme")||"light";
+    setTheme(theme);setFontSize(localStorage.getItem("fontSize")||"normal");setFont(localStorage.getItem("font")||"arial");
+    if(localStorage.getItem("cookiesAccepted")==="true")document.getElementById("cookieBanner").style.display="none";
+  </script>
+
+</body>
+</html>
